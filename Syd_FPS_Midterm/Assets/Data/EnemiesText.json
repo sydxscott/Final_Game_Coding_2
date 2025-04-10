@@ -1,0 +1,32 @@
+{
+
+  "enemiesList": [
+
+    {
+      "name": "Bad Zombie",
+      "health": 10,
+      "speed": 5,
+      "detectionRange": 10,
+      "attackRange": 3,
+      "attackCoolDown": 3,
+      "attackDamage":  3
+    },
+    {
+      "name": "Good Zombie",
+      "health": 6,
+      "speed": 2.5,
+      "detectionRange": 10,
+      "attackRange": 3,
+      "attackCoolDown": 2,
+      "attackDamage": 1
+
+    }
+
+  ]
+
+
+
+}
+
+
+
