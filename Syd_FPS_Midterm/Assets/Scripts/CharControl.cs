@@ -53,6 +53,17 @@ public class CharControl : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI distressText;
     public TextMeshProUGUI fufillText;
+    public TextMeshProUGUI ammoText;
+
+
+    //dashing 
+    public float maxDashDuration = .02f;
+    public float dashDistance = 10f;
+    public float dashCoolDown = 10f;
+    private bool canDash = true;
+    private bool isDashing = false;
+ 
+
 
 
     // Start is called before the first frame update
@@ -63,19 +74,20 @@ public class CharControl : MonoBehaviour
         //we lock cursor to middle of screen
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Time.timeScale = 1f;
 
-        
-    }
-
-    void FixedUpdate()
-    {
-        //is more reliable for physics than collision enter and exit
-        isGrounded = Physics.Raycast(groundCheck.position, Vector3.down,
-        groundDistance);
-        Debug.DrawRay(groundCheck.position, Vector3.down * groundDistance,
-        Color.red);
 
     }
+
+    //void FixedUpdate()
+    //{
+    //    //is more reliable for physics than collision enter and exit
+    //    isGrounded = Physics.Raycast(groundCheck.position, Vector3.down,
+    //    groundDistance);
+    //    Debug.DrawRay(groundCheck.position, Vector3.down * groundDistance,
+    //    Color.red);
+
+    //}
 
 
     // Update is called once per frame
@@ -91,9 +103,16 @@ public class CharControl : MonoBehaviour
         transform.right * horizontalInput * walkSpeed + Vector3.up *
         velocity.y;
 
-        CameraLook();
+        //CameraLook();
         MovePlayer();
         UpdateStatsText();
+
+
+        if(Input.GetKey(KeyCode.Space) && canDash && playerMovementInput != Vector3.zero)
+        {
+            StartCoroutine(Dash());
+            Debug.Log("start dash");
+        }
 
 
         if(playerHealth <= 0)
@@ -105,22 +124,10 @@ public class CharControl : MonoBehaviour
 
         }
 
-
+    
 
     }
 
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Good Zombie" || collision.gameObject.tag == "Bad Zombie")
-    //    {
-    //        //health going down by two?? is it because enemy glithces on the player weirdly???
-
-    //       Debug.Log("collision happend");
-    //       playerHealth -= 1;
-    //       Debug.Log("Player Health: " + playerHealth);
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -161,10 +168,10 @@ public class CharControl : MonoBehaviour
         {
             //small downward force to keep us grounded
             velocity.y = -1;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                velocity.y = jumpForce;
-            }
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    velocity.y = jumpForce;
+            //}
         }
         else
         {
@@ -178,16 +185,31 @@ public class CharControl : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void Crouch()
+   
+    private IEnumerator Dash()
     {
-        if (isCrouching)
+        isDashing = true;
+        canDash = false;
+
+        Vector3 dashDirection = playerMovementInput.normalized;
+
+        float dashSpeed = dashDistance/ maxDashDuration;
+
+        float startTime = Time.time;
+
+        while (Time.time < startTime + maxDashDuration)
         {
-            transform.localScale = new Vector3(1, .5f, 1);
+            controller.Move(dashDirection * dashSpeed * Time.deltaTime);
+            yield return null;
         }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+
+        isDashing = false;
+        Debug.Log("Dash ended starting cooldom");
+
+        yield return new WaitForSeconds(dashCoolDown);
+
+        canDash = true;
+        Debug.Log("dash cooldown is over");
 
     }
 
@@ -197,6 +219,8 @@ public class CharControl : MonoBehaviour
         healthText.text = "Health: " + playerHealth.ToString();
         distressText.text = "Distress: " + distress.ToString();
         fufillText.text = "Fufillment: " + fufillment.ToString();
+        ammoText.text = "Ammo: " + Weapon.numberOfBullets.ToString() + " /12";
+
     }
 
     public void Health (int amount)

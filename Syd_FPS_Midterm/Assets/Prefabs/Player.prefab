@@ -25,11 +25,11 @@ Transform:
   m_GameObject: {fileID: 906196323778684424}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.64, y: -0.67999995, z: 0.88}
+  m_LocalPosition: {x: 0.64, y: 0.04000008, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9040143822785128367}
+  m_Father: {fileID: 6883088874648649996}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1226031048119069381
 GameObject:
@@ -61,8 +61,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.72, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7120012394775643422}
+  m_Children: []
   m_Father: {fileID: 6883088874648649996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8639612917508699287
@@ -160,6 +159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7120012394775643422}
   - {fileID: 9040143822785128367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -281,6 +281,10 @@ MonoBehaviour:
   healthText: {fileID: 0}
   distressText: {fileID: 0}
   fufillText: {fileID: 0}
+  ammoText: {fileID: 0}
+  maxDashDuration: 0.02
+  dashDistance: 10
+  dashCoolDown: 10
 --- !u!143 &1270761656774762595
 CharacterController:
   m_ObjectHideFlags: 0
