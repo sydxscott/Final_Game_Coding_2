@@ -16,8 +16,18 @@ public class Crafting : MonoBehaviour
     // make a table of 
 
 
-
-
+    //make a list
+    //kill enemy 
+    //enemy drop item 
+    //ontrigger item nameoflist.add
+    //add sprites from list to crafting ui 
+    //if bad zombies all dead ten you can go back to room to craft 
+    // sewing machine is avalable 
+    // grab one sprite place on sewing machine 
+    //grab secid sprite, place on sewing machine
+    //instantate the combonation of the two 
+    //add combo to new list called craft goods 
+    //if item in craft goods can 
 
     // Start is called before the first frame update
     void Start()
