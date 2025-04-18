@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int waveNumber = 1;
     //time to wait before spawning a new wave 
-    public float timeBetweenWaves = 20f;
+    public float timeBetweenWaves = 30f;
     public int enemiesPerWave = 3;
     public int enemiesAlive = 0;
     public static int badZombies;

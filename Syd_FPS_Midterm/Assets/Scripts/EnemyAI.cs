@@ -297,6 +297,7 @@ public class EnemyAI : MonoBehaviour
         //radis = GetComponentInChildren<>
         radius = GetComponentInChildren<Light>();
         //radius = GameObject.FindGameObjectWithTag("Radius");
+        Collider trigger = GetComponentInChildren<SphereCollider>();
 
         agent.enabled = false;
         dead = true;
@@ -314,6 +315,7 @@ public class EnemyAI : MonoBehaviour
 
         //radius.SetActive(true);
         radius.enabled = true;    
+        trigger.enabled = true;
       
 
 

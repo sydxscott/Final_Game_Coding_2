@@ -10,10 +10,10 @@ public class CharControl : MonoBehaviour
     //character movements
     private CharacterController controller;
     //store our movement input
-    private Vector3 playerMovementInput;
+    public Vector3 playerMovementInput;
     //store velocity for gravity and jumping on y axis
     private Vector3 velocity;
-    public static float walkSpeed = 5f;
+    public static float walkSpeed = 10f;
     public bool isRunning;
     public float runningSpeed;
     public bool isCrouching = false;
@@ -106,6 +106,8 @@ public class CharControl : MonoBehaviour
         //CameraLook();
         MovePlayer();
         UpdateStatsText();
+        MaxStat(distress);
+        MaxStat(fufillment);
 
 
         if(Input.GetKey(KeyCode.Space) && canDash && playerMovementInput != Vector3.zero)
@@ -134,11 +136,21 @@ public class CharControl : MonoBehaviour
         if(other.gameObject.tag == "Good Zombie" && EnemyAI.dead == true)
         {
             distress += 5;
-            walkSpeed -= .35f;
+            walkSpeed = 2f;
             Debug.Log("distress down by 10:" +  distress);  
         }
 
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Good Zombie" && EnemyAI.dead == true)
+        {
+           
+            walkSpeed = 10f;
+            Debug.Log("return to normal speed:" + walkSpeed);
+        }
     }
 
     private void CameraLook()
@@ -231,7 +243,16 @@ public class CharControl : MonoBehaviour
 
     }
 
+    public void MaxStat(int stat)
+    {
+        int statMax = 100;
 
+        if(stat> statMax)
+        {
+            stat = statMax;
+            Debug.Log(stat);
+        }
+    }
 
 }
 
