@@ -35,6 +35,25 @@ public class LootBag : MonoBehaviour
         Debug.Log("No Loot Droped");
         return null;
 
+    }
+
+
+    public void InstantiateLoot(Vector3 spawnPos)
+    {
+        Loot droppItem = GetDroppedItem();
+        if (droppItem != null)
+        {
+
+            //instantates the drop item prefab and replaces the sprite of the sprite of the loot that was chosen in GetDroppedItem()
+            GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPos, Quaternion.identity);
+            //lootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.lootSprite; 
+
+
+            //adding some force to the loot 
+            float dropForce = 300f;
+            Vector3 dropDirection = new Vector3(Random.Range(-1, 1f), Random.Range(1, 2f), Random.Range(-1, 1f));
+            lootGameObject. GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce);
+        }
 
     }
 

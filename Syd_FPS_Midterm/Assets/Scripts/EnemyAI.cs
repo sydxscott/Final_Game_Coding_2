@@ -266,6 +266,10 @@ public class EnemyAI : MonoBehaviour
         agent.enabled = false;
 
         dead = true;
+
+
+       
+
         StartCoroutine(DespawnTime());
 
          
@@ -275,7 +279,7 @@ public class EnemyAI : MonoBehaviour
 
 
         Fufillment();
-
+       GetComponent<LootBag>().InstantiateLoot(transform.position); 
 
         Debug.Log("enemy fallen");
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8668059439940590915}
   - component: {fileID: 2582564088625694247}
   - component: {fileID: 2933965789761013707}
-  - component: {fileID: -1946558923953390270}
+  - component: {fileID: 5638932267096767201}
   m_Layer: 0
   m_Name: Bad Zombie
   m_TagString: Bad Zombie
@@ -156,7 +156,7 @@ MonoBehaviour:
   attackDamage: 0
   deapawnTime: 10
   rotationSpeed: 3
---- !u!114 &-1946558923953390270
+--- !u!114 &5638932267096767201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

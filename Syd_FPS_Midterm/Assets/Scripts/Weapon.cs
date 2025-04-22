@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour
 
         
 
-        bulletSpawnPos.rotation = Quaternion.Euler( Camera.main.transform.rotation.eulerAngles.x - 7, Camera.main.transform.rotation.eulerAngles.y +3, Camera.main.transform.rotation.eulerAngles.z);
+        bulletSpawnPos.rotation = Quaternion.Euler( Camera.main.transform.rotation.eulerAngles.x - 3, Camera.main.transform.rotation.eulerAngles.y +3, Camera.main.transform.rotation.eulerAngles.z);
 
         //updating the text 
         //ammoText.text = "Ammo: " + numberOfBullets.ToString() + " /12";
