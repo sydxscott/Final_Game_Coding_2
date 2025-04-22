@@ -314,7 +314,7 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("enemy fallen");
 
         //radius.SetActive(true);
-        radius.enabled = true;    
+        radius.enabled = true;     
         trigger.enabled = true;
       
 

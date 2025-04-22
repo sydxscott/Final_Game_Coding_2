@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     public float bulletPrefabLifeTime;
     public static int numberOfBullets = 12;
     public float reloadTime = .5f;
+    public GameObject camera;
 
     //public TextMeshProUGUI ammoText;
 
@@ -44,6 +45,10 @@ public class Weapon : MonoBehaviour
         }
 
 
+        
+
+        bulletSpawnPos.rotation = Quaternion.Euler( Camera.main.transform.rotation.eulerAngles.x - 7, Camera.main.transform.rotation.eulerAngles.y +3, Camera.main.transform.rotation.eulerAngles.z);
+
         //updating the text 
         //ammoText.text = "Ammo: " + numberOfBullets.ToString() + " /12";
 
@@ -54,6 +59,8 @@ public class Weapon : MonoBehaviour
     void FireWeapon()
     {
         //spawing the bullet
+
+
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPos.position, Quaternion.identity);
        
 

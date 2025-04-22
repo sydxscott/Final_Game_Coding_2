@@ -41,12 +41,12 @@ public class CharControl : MonoBehaviour
     private float xrotation = 0;
 
 
-    public static int playerHealth = 100;
+    public static int playerHealth;
     //distress goes up when you shoot good zombie --> speed goes down --> at 0 cant walk
-    public static int distress = 0;
+    public static int distress;
 
     //fufillment goes up when you shoot a bad zombie --> speed goes up
-    public static int fufillment = 0;
+    public static int fufillment;
 
 
     //health text stuff
@@ -75,23 +75,26 @@ public class CharControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1f;
+        playerHealth = 100;
+        distress = 0;   
+        fufillment = 0;
+     
+
+}
+
+//void FixedUpdate()
+//{
+//    //is more reliable for physics than collision enter and exit
+//    isGrounded = Physics.Raycast(groundCheck.position, Vector3.down,
+//    groundDistance);
+//    Debug.DrawRay(groundCheck.position, Vector3.down * groundDistance,
+//    Color.red);
+
+//}
 
 
-    }
-
-    //void FixedUpdate()
-    //{
-    //    //is more reliable for physics than collision enter and exit
-    //    isGrounded = Physics.Raycast(groundCheck.position, Vector3.down,
-    //    groundDistance);
-    //    Debug.DrawRay(groundCheck.position, Vector3.down * groundDistance,
-    //    Color.red);
-
-    //}
-
-
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         //zInput gets players w or s input which is -1 or 1
