@@ -6,6 +6,7 @@ public class LootBag : MonoBehaviour
 {
     public GameObject droppedItemPrefab;
     public List <Loot> lootList = new List <Loot>();
+    public float dropForce = 300f;
 
     Loot GetDroppedItem()
     {
@@ -22,7 +23,7 @@ public class LootBag : MonoBehaviour
             
             }
 
-        }
+        }  
         // if you haev found some loot that can be droped (it meets the number requireemnt)
         if (possibleItems.Count > 0)
         {
@@ -50,8 +51,8 @@ public class LootBag : MonoBehaviour
 
 
             //adding some force to the loot 
-            float dropForce = 300f;
-            Vector3 dropDirection = new Vector3(Random.Range(-1, 1f), Random.Range(1, 2f), Random.Range(-1, 1f));
+            
+            Vector3 dropDirection = new Vector3(Random.Range(-.05f, .05f), Random.Range(1, 2f), Random.Range(-.05f, .05f));
             lootGameObject. GetComponent<Rigidbody>().AddForce(dropDirection * dropForce);
         }
 

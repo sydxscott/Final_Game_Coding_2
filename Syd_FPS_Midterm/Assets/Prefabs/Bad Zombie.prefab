@@ -173,3 +173,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b37ba424a587ff4e9feb30ae97e9e05, type: 2}
   - {fileID: 11400000, guid: 36d5917409feee84d8758edc47953cfc, type: 2}
   - {fileID: 11400000, guid: fe233446daa970e4096d7ba48bcee540, type: 2}
+  dropForce: 750

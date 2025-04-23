@@ -32,7 +32,7 @@ public class LootPickUp : MonoBehaviour
             string item = gameObject.GetComponent<SpriteRenderer>().sprite.name; 
             itemsGathered.Add(item);
 
-
+            Debug.Log("item added to list: " + item);
         }
     }
 
