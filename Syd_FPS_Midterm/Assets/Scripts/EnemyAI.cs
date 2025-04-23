@@ -260,26 +260,21 @@ public class EnemyAI : MonoBehaviour
 
     void DeathStateBad()
     {
-        
 
         //stops from moving
         agent.enabled = false;
 
         dead = true;
-
-
        
 
         StartCoroutine(DespawnTime());
 
-         
-
-
+       
         StartCoroutine(ZombieFall());
 
 
         Fufillment();
-       GetComponent<LootBag>().InstantiateLoot(transform.position); 
+        GetComponent<LootBag>().InstantiateLoot(transform.position); 
 
         Debug.Log("enemy fallen");
 
@@ -318,7 +313,8 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("enemy fallen");
 
         //radius.SetActive(true);
-        radius.enabled = true;     
+        radius.enabled = true;   
+        
         trigger.enabled = true;
       
 
@@ -402,14 +398,19 @@ public class EnemyAI : MonoBehaviour
 
             enemyHealth -= 1;
             Debug.Log("enemy Health: " + enemyHealth + "type of enemey: " + enemyType);
-            if(enemyHealth == 0)
+            if(enemyHealth == 0 && gameObject.tag == "Good Zombie")
             {
                 Debug.Log("enemy heaalth is zero");
-                DeathStateBad();
                 DeathStateGood();
                 Distress();
-                //Fufillment();
+            
             }
+            if(enemyHealth == 0 && gameObject.tag == "Bad Zombie")
+            {
+                DeathStateBad();
+
+            }
+
             Debug.Log("enmey hit");
 
 
