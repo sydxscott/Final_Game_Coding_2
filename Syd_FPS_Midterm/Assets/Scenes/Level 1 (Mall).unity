@@ -695,7 +695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &49148028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2833,13 +2833,14 @@ GameObject:
   m_Component:
   - component: {fileID: 451609219}
   - component: {fileID: 451609218}
+  - component: {fileID: 451609220}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &451609218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2907,6 +2908,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &451609220
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451609217}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &453769067
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,7 +6053,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 30
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 2023257875}
   m_Follow: {fileID: 2023257875}
@@ -6072,7 +6100,7 @@ MonoBehaviour:
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
   m_CameraRadius: 0.1
-  m_Strategy: 1
+  m_Strategy: 0
   m_MaximumEffort: 5
   m_SmoothingTime: 0.152
   m_Damping: 0.94
@@ -13499,6 +13527,14 @@ PrefabInstance:
     - target: {fileID: 2150350518266526506, guid: 6cd0a8e4e34e8c7409816aed9413531b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727357654725711228, guid: 6cd0a8e4e34e8c7409816aed9413531b, type: 3}
+      propertyPath: xAxis.m_MaxSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727357654725711228, guid: 6cd0a8e4e34e8c7409816aed9413531b, type: 3}
+      propertyPath: yAxis.m_MaxSpeed
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6883088874648649996, guid: 6cd0a8e4e34e8c7409816aed9413531b, type: 3}
       propertyPath: m_LocalPosition.x
