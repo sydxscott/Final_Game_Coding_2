@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(6);
         }
 
     }

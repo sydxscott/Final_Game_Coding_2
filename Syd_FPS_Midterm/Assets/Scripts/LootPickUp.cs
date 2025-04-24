@@ -8,18 +8,18 @@ public class LootPickUp : MonoBehaviour
     public List <string> itemsGathered = new List<string> ();
     
     //numbers to see how many of each material we have
-    int numButton;
-    int numFur;
-    int numFabric;
-    int numLace;
-    int numGrom;
+    public static int numButton;
+    public static int numFur;
+    public static int numFabric;
+    public static int numLace;
+    public static int numGrom;
 
     //bools to check if we have an item 
-    bool haveButton;
-    bool haveFur;
-    bool haveFabric;
-    bool haveLace;
-    bool haveGrom;
+    public static bool haveButton;
+    public static bool haveFur;
+    public static bool haveFabric;
+    public static bool haveLace;
+    public static bool haveGrom;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +47,9 @@ public class LootPickUp : MonoBehaviour
             {
                 numButton++;
                 haveButton = true;
+                // this debug log is not working so for each or if statement is not getting called 
+                //come back to this problem later and work on crafting mechanic
+                Debug.Log("num button: ");
 
             }
             if (item == "Fur")

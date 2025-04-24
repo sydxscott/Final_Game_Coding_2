@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: f908709785377284c937b0745bdcb319
+  - enabled: 1
+    path: Assets/Scenes/Crafting draft.unity
+    guid: e50e23bc0f4a67144b8609b296c72098
   m_configObjects: {}
