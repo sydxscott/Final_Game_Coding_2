@@ -100,9 +100,11 @@ public class CraftingManager : MonoBehaviour
 
     public void OnClickSlot(Slot slot)
     {
+        //when we click on a slot, reset and make it empty
         slot.item = null;
         itemList[slot.index] = null;
         slot.gameObject.SetActive(false);
+        //check for recpies with new empty slot
         CheckForCreatedRecipies();
 
 
