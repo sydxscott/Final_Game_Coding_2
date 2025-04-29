@@ -207,7 +207,6 @@ public class CraftingManager : MonoBehaviour
                 LootPickUp.numFur -= 1;
             }
 
-
             _slot.item = null;
             _slot.gameObject.SetActive(false);
             itemList[_slot.index] = null;
@@ -224,9 +223,6 @@ public class CraftingManager : MonoBehaviour
         furText.text = LootPickUp.numFur.ToString();
         laceText.text =  LootPickUp.numLace.ToString();
         gromText.text =  LootPickUp.numGrom.ToString();
-
-
-
     } 
 
 
