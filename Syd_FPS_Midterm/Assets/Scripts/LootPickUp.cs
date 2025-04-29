@@ -33,23 +33,13 @@ public class LootPickUp : MonoBehaviour
             itemsGathered.Add(item);
 
             Debug.Log("item added to list: " + item);
-        }
-    }
-
-
-    private void Update()
-    {
-        // go through item list and for each one check what type of item it is 
-        // add to the amount of that item we have if we have it and make sure we know that we indeed have it
-        foreach(string item in itemsGathered)
-        {
             if (item == "Button")
             {
                 numButton++;
                 haveButton = true;
                 // this debug log is not working so for each or if statement is not getting called 
                 //come back to this problem later and work on crafting mechanic
-                Debug.Log("num button: ");
+                Debug.Log("num button: " + numButton);
 
             }
             if (item == "Fur")
@@ -62,6 +52,7 @@ public class LootPickUp : MonoBehaviour
             {
                 numFabric++;
                 haveFabric = true;
+                Debug.Log("num fabric: " + numFabric);
             }
             if(item == "Lace")
             {
@@ -73,11 +64,9 @@ public class LootPickUp : MonoBehaviour
                 numGrom++;
                 haveGrom = true;
             }
-
-
         }
-
     }
+
 
 
 }

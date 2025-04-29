@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
@@ -11,7 +12,14 @@ public class CraftingManager : MonoBehaviour
     private Item currentItem;
     public Image customCursor;
 
+   
+
+    //list of slots for putting in item 
     public Slot[] craftingSlot;
+
+    //list of slots for putting in crafting results
+
+    public Slot[] inventorySlot;
 
     //items that get dragged into the slots
     public List<Item> itemList;
@@ -22,6 +30,14 @@ public class CraftingManager : MonoBehaviour
 
     //the result slot which we will replace with a crafting result image
     public Slot resultSlot;
+
+
+    public TextMeshProUGUI buttonText;
+    public TextMeshProUGUI fabricText;
+    public TextMeshProUGUI furText;
+    public TextMeshProUGUI laceText;
+    public TextMeshProUGUI gromText;
+
 
     private void Update()
     {
@@ -35,15 +51,33 @@ public class CraftingManager : MonoBehaviour
                 Slot nearestSlot = null;
                 float shortestDistance = float.MaxValue;
 
-                foreach (Slot slot in craftingSlot)
+                if (currentItem.resultItem != true)
                 {
-                    float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
-
-                    if (distance < shortestDistance)
+                    foreach (Slot slot in craftingSlot)
                     {
-                        shortestDistance = distance;
-                        nearestSlot = slot;
+                        float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
+
+                        if (distance < shortestDistance)
+                        {
+                            shortestDistance = distance;
+                            nearestSlot = slot;
+                        }
                     }
+                }
+                if (currentItem.resultItem == true)
+                {
+
+                    foreach (Slot slot in inventorySlot)
+                    {
+                        float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
+
+                        if (distance < shortestDistance)
+                        {
+                            shortestDistance = distance;
+                            nearestSlot = slot;
+                        }
+                    }
+
                 }
                 nearestSlot.gameObject.SetActive(true);
                 nearestSlot.GetComponent<Image>().sprite = currentItem.GetComponent<Image>().sprite;
@@ -55,6 +89,10 @@ public class CraftingManager : MonoBehaviour
                 CheckForCreatedRecipies();
             }
         }
+
+         
+
+        UpdateCraftingText();
     }
 
 
@@ -123,9 +161,73 @@ public class CraftingManager : MonoBehaviour
         }
 
 
+    }
+
+
+    public void OnMouseDownResult(Slot slot)
+    {
+        Slot avalSlot = null;
+
+        // for all the result slots check to see if there is anything 
+        //if there isn't anything in the slot than that becomes the first avalable slot
+        foreach (Slot _slot in inventorySlot)
+        {
+            if (_slot.item == null)
+            {
+
+                avalSlot = _slot;
+                break;
+            }
+
+        }
+
+        // put the crafted item into the avalable slot
+        avalSlot.gameObject.SetActive(true);
+        avalSlot.GetComponent<Image>().sprite = slot.GetComponent<Image>().sprite;
+        avalSlot.item = slot.item;
+
+        // make the result slot empty 
+        slot.item = null;
+        itemList[slot.index] = null;
+        slot.gameObject.SetActive(false);
+
+        //empty out the crafting slots 
+        foreach (Slot _slot in craftingSlot)
+        {
+            if (_slot.item.itemName == "button")
+            {
+                LootPickUp.numButton -= 1;
+            }
+            if (_slot.item.itemName == "fabric")
+            {
+                LootPickUp.numFabric -= 1;
+            }
+            if (_slot.item.itemName == "fur")
+            {
+                LootPickUp.numFur -= 1;
+            }
+
+
+            _slot.item = null;
+            _slot.gameObject.SetActive(false);
+            itemList[_slot.index] = null;
+        }
+
 
 
     }
+
+    public void UpdateCraftingText()
+    {
+        buttonText.text = LootPickUp.numButton.ToString();
+        fabricText.text =  LootPickUp.numFabric.ToString();
+        furText.text = LootPickUp.numFur.ToString();
+        laceText.text =  LootPickUp.numLace.ToString();
+        gromText.text =  LootPickUp.numGrom.ToString();
+
+
+
+    } 
 
 
 }

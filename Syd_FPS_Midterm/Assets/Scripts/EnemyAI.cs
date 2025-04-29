@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 public class EnemyAI : MonoBehaviour
 {
     //
-    public enum EnemyState { Idle, Patrol, Chase, Attack, DeathBad, DeathGood}
+    public enum EnemyState { Idle, Patrol, Chase, Attack,}
     private EnemyState currentState;
 
     //references 
@@ -49,14 +49,6 @@ public class EnemyAI : MonoBehaviour
     // do rhis is switch statement and have a tag that is goodfashionzombie and have the if statement be if the tag is a goodzombie and is in dead state 
 
 
-
-    private void Awake()
-    {
-        
-        
-
-
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -109,8 +101,7 @@ public class EnemyAI : MonoBehaviour
         {
             case EnemyState.Idle:
                 IdleBehavior();
-                if (enemyHealth <= 0 && gameObject.tag == "Bad Zombie") ChangeState(EnemyState.DeathBad);
-                if (enemyHealth <= 0 && gameObject.tag == "Good Zombie") ChangeState(EnemyState.DeathGood);
+               
                 //break makesure program doent check other cases once match is found 
                 break;
 
@@ -119,51 +110,33 @@ public class EnemyAI : MonoBehaviour
                 PatrolBehavior();
                 // enemy detiction will which to chse 
                 if (distanceToPlayer<= detectionRange) ChangeState(EnemyState.Chase);
-                if (enemyHealth <= 0 && gameObject.tag == "Bad Zombie") ChangeState(EnemyState.DeathBad);
-                if (enemyHealth <= 0 && gameObject.tag == "Good Zombie") ChangeState(EnemyState.DeathGood);
+             
                 break;
 
             case EnemyState.Chase:
                 ChaseBehavior();
                 if(distanceToPlayer<= attackRange) ChangeState(EnemyState.Attack);
                 else if (distanceToPlayer> detectionRange) ChangeState(EnemyState.Patrol);
-                if (enemyHealth <= 0 && gameObject.tag == "Bad Zombie") ChangeState(EnemyState.DeathBad);
-                if (enemyHealth <= 0 && gameObject.tag == "Good Zombie") ChangeState(EnemyState.DeathGood);
+               
                 break;
 
             case EnemyState.Attack:
                 AttackBehavior();
                 if(distanceToPlayer > attackRange) ChangeState(EnemyState.Chase);
-                if (enemyHealth <= 0 && gameObject.tag == "Bad Zombie") ChangeState(EnemyState.DeathBad);
-                if (enemyHealth <= 0 && gameObject.tag == "Good Zombie") ChangeState(EnemyState.DeathGood);
+           
                 break;
-
-            case EnemyState.DeathBad:
-                Debug.Log("death state bad called"); 
-                break;
-            case EnemyState.DeathGood:
-                Debug.Log("death state good called");
-                break;
-
-
         }
 
-
-  
     }
-
-
-  
-
 
     void Distress()
     {
-        Debug.Log("Dead true/false" + dead);
+        //Debug.Log("Dead true/false" + dead);
 
         if (dead && gameObject.tag == "Good Zombie")
         {
             CharControl.distress += 3;
-            Debug.Log("distress went up, ff =" + CharControl.distress);
+            //Debug.Log("distress went up, ff =" + CharControl.distress);
             CharControl.walkSpeed -= 0.15f;
 
         }
@@ -172,13 +145,13 @@ public class EnemyAI : MonoBehaviour
 
     void Fufillment()
     {
-        Debug.Log("Dead true/false" + dead);
+        //Debug.Log("Dead true/false" + dead);
         if (dead && gameObject.tag == "Bad Zombie")
         {
             EnemySpawner.badZombies -= 1;
             CharControl.fufillment += 3;
             CharControl.walkSpeed += 0.5f;
-            Debug.Log("fufillment went up, ff =" +  CharControl.fufillment);
+            //Debug.Log("fufillment went up, ff =" +  CharControl.fufillment);
 
         }
 
@@ -248,7 +221,7 @@ public class EnemyAI : MonoBehaviour
         if(Time.time >= lastAttackTime + attackCoolDown)
         {
             lastAttackTime = Time.time;
-            Debug.Log("enemy attacked player");
+            //Debug.Log("enemy attacked player");
             //logic to reduce player hearth healthscript.getcomponent.losinghealth
 
             charContorlScript.Health(attackDamage);
@@ -276,7 +249,7 @@ public class EnemyAI : MonoBehaviour
         Fufillment();
         GetComponent<LootBag>().InstantiateLoot(transform.position); 
 
-        Debug.Log("enemy fallen");
+        //Debug.Log("enemy fallen");
 
      
 
@@ -300,29 +273,21 @@ public class EnemyAI : MonoBehaviour
 
         agent.enabled = false;
         dead = true;
-        Debug.Log("enemy dead");
-        //DrawGizmoDisc(transform.gameObject, 0.5f);
-
-
-       
+  
         StartCoroutine(DespawnTime());
 
-    
-
         StartCoroutine(ZombieFall());
-        Debug.Log("enemy fallen");
+        //Debug.Log("enemy fallen");
 
         //radius.SetActive(true);
         radius.enabled = true;   
         
         trigger.enabled = true;
-      
-
-
-        Debug.Log("light on");
+   
+       // Debug.Log("light on");
 
      
-        Debug.Log("fallen and rotated to:" + transform.rotation);
+       // Debug.Log("fallen and rotated to:" + transform.rotation);
 
 
 
@@ -335,9 +300,6 @@ public class EnemyAI : MonoBehaviour
         Vector3 newPosition = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
         float elapseTime = 0;
         float durration = 10f;
-
-
-  
 
         while (elapseTime < durration)
         {
@@ -374,16 +336,12 @@ public class EnemyAI : MonoBehaviour
             yield return new WaitForSeconds(deapawnTime);
             //spawn enmey function here
             Destroy(gameObject);
-            Debug.Log("despawn");
+            //Debug.Log("despawn");
 
         }
 
 
     }
-
-
-
-
 
 
     //add differtn states 
@@ -397,10 +355,10 @@ public class EnemyAI : MonoBehaviour
         {
 
             enemyHealth -= 1;
-            Debug.Log("enemy Health: " + enemyHealth + "type of enemey: " + enemyType);
+           // Debug.Log("enemy Health: " + enemyHealth + "type of enemey: " + enemyType);
             if(enemyHealth == 0 && gameObject.tag == "Good Zombie")
             {
-                Debug.Log("enemy heaalth is zero");
+               // Debug.Log("enemy heaalth is zero");
                 DeathStateGood();
                 Distress();
             
@@ -451,7 +409,7 @@ public class EnemyAI : MonoBehaviour
                     attackRange = enemy.attackRange;
                     attackCoolDown = enemy.attackCoolDown;
                     attackDamage = enemy.attackDamage;
-                    Debug.Log($"Loaded enemy: {enemy.name}");
+                    //Debug.Log($"Loaded enemy: {enemy.name}");
 
                 }
 
