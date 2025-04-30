@@ -31,12 +31,21 @@ public class CraftingManager : MonoBehaviour
     //the result slot which we will replace with a crafting result image
     public Slot resultSlot;
 
-
+    //text for the numebr of items
     public TextMeshProUGUI buttonText;
     public TextMeshProUGUI fabricText;
     public TextMeshProUGUI furText;
     public TextMeshProUGUI laceText;
     public TextMeshProUGUI gromText;
+
+    //bools to see if you have crafted this item so it can show up in your closet/ mirror to equip
+    public static bool haveFurResult;
+    public static bool haveButtonResult;
+
+    //items corrispoding to items 
+    public Item button;
+    public Item fur;
+    public Item fabric;
 
 
     private void Update()
@@ -93,6 +102,7 @@ public class CraftingManager : MonoBehaviour
          
 
         UpdateCraftingText();
+        CheckForMaterialNum();
     }
 
 
@@ -138,6 +148,25 @@ public class CraftingManager : MonoBehaviour
 
     public void OnClickSlot(Slot slot)
     {
+        if (slot.item.itemName == "button")
+        {
+            LootPickUp.numButton +=1;
+
+
+        }
+        if (slot.item.itemName == "fur")
+        {
+            LootPickUp.numFur += 1;
+
+
+        }
+        if (slot.item.itemName == "fabric")
+        {
+            LootPickUp.numFabric += 1;
+
+
+        }
+
         //when we click on a slot, reset and make it empty
         slot.item = null;
         itemList[slot.index] = null;
@@ -159,6 +188,20 @@ public class CraftingManager : MonoBehaviour
             customCursor.sprite = currentItem.GetComponent<Image>().sprite;
 
         }
+        if (item.itemName == "button")
+        {
+            LootPickUp.numButton -= 1;
+        }
+        if (item.itemName == "fabric")
+        {
+            LootPickUp.numFabric -= 1;
+        }
+        if (item.itemName == "fur")
+        {
+            LootPickUp.numFur -= 1;
+        }
+       
+        
 
 
     }
@@ -194,24 +237,53 @@ public class CraftingManager : MonoBehaviour
         //empty out the crafting slots 
         foreach (Slot _slot in craftingSlot)
         {
-            if (_slot.item.itemName == "button")
-            {
-                LootPickUp.numButton -= 1;
-            }
-            if (_slot.item.itemName == "fabric")
-            {
-                LootPickUp.numFabric -= 1;
-            }
-            if (_slot.item.itemName == "fur")
-            {
-                LootPickUp.numFur -= 1;
-            }
-
+            
             _slot.item = null;
             _slot.gameObject.SetActive(false);
             itemList[_slot.index] = null;
         }
 
+        if (slot.item.itemName == "Fur Result")
+        {
+
+            haveFurResult = true;
+
+        }
+        if(slot.item.itemName == "Button Result")
+        {
+            haveButtonResult = true;
+        }
+
+    }
+
+    public void CheckForMaterialNum()
+    {
+        if (LootPickUp.numButton <= 0)
+        {
+
+            button.gameObject.SetActive(false);
+
+        }
+        else
+        {
+            button.gameObject.SetActive(true);
+        }
+        if(LootPickUp.numFur <= 0)
+        {
+            fur.gameObject.SetActive(false);
+        }
+        else
+        {
+            fur.gameObject.SetActive(true);
+        }
+        if(LootPickUp.numFabric <= 0)
+        {
+            fabric.gameObject.SetActive(false);
+        }
+        else
+        {
+            fabric.gameObject.SetActive(true);
+        }
 
 
     }
