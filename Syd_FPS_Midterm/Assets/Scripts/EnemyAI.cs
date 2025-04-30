@@ -155,15 +155,12 @@ public class EnemyAI : MonoBehaviour
 
         }
 
-
     }
 
 
     void ChangeState (EnemyState newState)
     {
         currentState = newState;
-
-
     }
     
     void IdleBehavior()
@@ -233,29 +230,19 @@ public class EnemyAI : MonoBehaviour
 
     void DeathStateBad()
     {
-
         //stops from moving
         agent.enabled = false;
 
         dead = true;
        
-
         StartCoroutine(DespawnTime());
 
-       
         StartCoroutine(ZombieFall());
-
 
         Fufillment();
         GetComponent<LootBag>().InstantiateLoot(transform.position); 
 
         //Debug.Log("enemy fallen");
-
-     
-
-    
-
-
     }
 
     void DeathStateGood()
@@ -285,12 +272,7 @@ public class EnemyAI : MonoBehaviour
         trigger.enabled = true;
    
        // Debug.Log("light on");
-
-     
        // Debug.Log("fallen and rotated to:" + transform.rotation);
-
-
-
     }
     
 
@@ -308,9 +290,7 @@ public class EnemyAI : MonoBehaviour
             elapseTime += Time.deltaTime;
             yield return null;
 
-        Debug.Log("zombuie fall");
-            
-
+            Debug.Log("zombuie fall");
         }
 
         transform.position = newPosition;  
@@ -318,15 +298,7 @@ public class EnemyAI : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         //Destroy(gameObject);
-
-
-
-
     }
-
-
-
-
 
 
     IEnumerator DespawnTime()
@@ -339,10 +311,7 @@ public class EnemyAI : MonoBehaviour
             //Debug.Log("despawn");
 
         }
-
-
     }
-
 
     //add differtn states 
     // if distance is greater than attack range fire projectles 
@@ -351,37 +320,30 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
 
             enemyHealth -= 1;
-           // Debug.Log("enemy Health: " + enemyHealth + "type of enemey: " + enemyType);
-            if(enemyHealth == 0 && gameObject.tag == "Good Zombie")
+            // Debug.Log("enemy Health: " + enemyHealth + "type of enemey: " + enemyType);
+            if (enemyHealth == 0 && gameObject.tag == "Good Zombie")
             {
-               // Debug.Log("enemy heaalth is zero");
+                // Debug.Log("enemy heaalth is zero");
                 DeathStateGood();
                 Distress();
-            
+
             }
-            if(enemyHealth == 0 && gameObject.tag == "Bad Zombie")
+            if (enemyHealth == 0 && gameObject.tag == "Bad Zombie")
             {
                 DeathStateBad();
 
             }
 
             Debug.Log("enmey hit");
-
-
         }
-       
          
         //add a collision for player --> teh zombie gets knocked back a bit
 
-
     }
-
-    
-
 
     private void LoadEnemyData(string enemyName)
     {
@@ -425,8 +387,4 @@ public class EnemyAI : MonoBehaviour
 
 
     }
-
-   
-
-
 }

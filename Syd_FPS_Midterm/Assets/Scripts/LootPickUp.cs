@@ -21,10 +21,16 @@ public class LootPickUp : MonoBehaviour
     public static bool haveLace;
     public static bool haveGrom;
 
+    //Renderer rendy;
+    //public Material mat;
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
+
+            //rendy = GetComponent<Renderer>();
+            //mat = rendy.GetComponent<Material>();
+
 
             Destroy(gameObject);
 
@@ -67,6 +73,16 @@ public class LootPickUp : MonoBehaviour
         }
     }
 
+
+    public void Update()
+    {
+        //if this and that = red shirt true
+        //if true closerList.add
+        //if player grabs red sprite
+        //set material to red
+        //if mose down compare tag red shirt
+       // mat.color = Color.green;
+    }
 
 
 }

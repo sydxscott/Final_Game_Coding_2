@@ -59,7 +59,8 @@ public class CraftingManager : MonoBehaviour
                 customCursor.gameObject.SetActive(false);
                 Slot nearestSlot = null;
                 float shortestDistance = float.MaxValue;
-
+                
+                //finding shortest distance for crafting slot
                 if (currentItem.resultItem != true)
                 {
                     foreach (Slot slot in craftingSlot)
@@ -72,7 +73,34 @@ public class CraftingManager : MonoBehaviour
                             nearestSlot = slot;
                         }
                     }
+
+                    //brain not working come back to this later:
+                    // if a slot has an item then that slot can no longer be the nearist slot
+                    if (nearestSlot != null)
+                    {
+                        // if nearist slot has something in it, the item has to go to the next nearest 
+                        Slot oldSlot = nearestSlot;
+
+                        foreach (Slot slot in craftingSlot)
+                        {
+                            float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
+
+                            if (distance < shortestDistance)
+                            {
+                                
+                                shortestDistance = distance;
+                                nearestSlot = slot;
+                            }
+                        }
+
+
+                    }
+
                 }
+
+
+
+                //finding shorest distance for inventory slots 
                 if (currentItem.resultItem == true)
                 {
 
@@ -88,6 +116,7 @@ public class CraftingManager : MonoBehaviour
                     }
 
                 }
+                //nearast slot becomes actuve and the image is replaced with the item you were draging
                 nearestSlot.gameObject.SetActive(true);
                 nearestSlot.GetComponent<Image>().sprite = currentItem.GetComponent<Image>().sprite;
                 nearestSlot.item = currentItem;
