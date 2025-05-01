@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
@@ -28,6 +29,9 @@ public class CraftingManager : MonoBehaviour
     public string[] recipes;
     public Item[] recipeResults;
 
+    //lisdt of crafted items to use in mirror changing room 
+    public static List<Item> craftedItems = new List<Item>();
+
     //the result slot which we will replace with a crafting result image
     public Slot resultSlot;
 
@@ -47,6 +51,12 @@ public class CraftingManager : MonoBehaviour
     public Item fur;
     public Item fabric;
 
+    private void Start()
+    {
+        
+
+
+    }
 
     private void Update()
     {
@@ -92,12 +102,8 @@ public class CraftingManager : MonoBehaviour
                                 nearestSlot = slot;
                             }
                         }
-
-
                     }
-
                 }
-
 
 
                 //finding shorest distance for inventory slots 
@@ -127,9 +133,6 @@ public class CraftingManager : MonoBehaviour
                 CheckForCreatedRecipies();
             }
         }
-
-         
-
         UpdateCraftingText();
         CheckForMaterialNum();
     }
@@ -229,15 +232,28 @@ public class CraftingManager : MonoBehaviour
         {
             LootPickUp.numFur -= 1;
         }
-       
-        
-
-
+      
     }
 
 
     public void OnMouseDownResult(Slot slot)
     {
+        if (slot.item.itemName == "Fur Result")
+        {
+
+            haveFurResult = true;
+            Debug.Log("Is fur result true:" + haveFurResult);
+            craftedItems.Add(slot.item);
+            Debug.Log("Items in crafted Item list: " + craftedItems.ToString());
+
+        }
+        if(slot.item.itemName == "Button Result")
+        {
+            haveButtonResult = true;
+            Debug.Log("Is button result true:" + haveButtonResult);
+            craftedItems.Add(slot.item);
+            Debug.Log("Items in crafted Item list: " + craftedItems.ToString());
+        }
         Slot avalSlot = null;
 
         // for all the result slots check to see if there is anything 
@@ -272,16 +288,6 @@ public class CraftingManager : MonoBehaviour
             itemList[_slot.index] = null;
         }
 
-        if (slot.item.itemName == "Fur Result")
-        {
-
-            haveFurResult = true;
-
-        }
-        if(slot.item.itemName == "Button Result")
-        {
-            haveButtonResult = true;
-        }
 
     }
 

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4c140dbd36728444c828b2a8c5e5ae38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f89bce957fe696e44a1e29defcfac491, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,3 +89,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Fur Result
+  resultItem: 1

@@ -27,11 +27,6 @@ public class LootPickUp : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-
-            //rendy = GetComponent<Renderer>();
-            //mat = rendy.GetComponent<Material>();
-
-
             Destroy(gameObject);
 
             //adding the items to list of all items gathered
@@ -76,12 +71,7 @@ public class LootPickUp : MonoBehaviour
 
     public void Update()
     {
-        //if this and that = red shirt true
-        //if true closerList.add
-        //if player grabs red sprite
-        //set material to red
-        //if mose down compare tag red shirt
-       // mat.color = Color.green;
+     
     }
 
 

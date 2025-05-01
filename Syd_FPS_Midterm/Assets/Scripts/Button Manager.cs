@@ -27,4 +27,17 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void Refill()
+    {
+        LootPickUp.numButton = 10;
+        LootPickUp.numFur = 10;
+        LootPickUp.numFabric = 10;  
+
+    }
+
+    public void Mirror()
+    {
+        SceneManager.LoadScene(7);
+    }
 }
