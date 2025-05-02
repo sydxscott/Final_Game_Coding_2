@@ -51,10 +51,11 @@ public class CraftingManager : MonoBehaviour
     public Item fur;
     public Item fabric;
 
+    
+
     private void Start()
     {
-        
-
+      
 
     }
 
@@ -65,48 +66,46 @@ public class CraftingManager : MonoBehaviour
             //check if we are draging an item around 
             if(currentItem != null)
             {
-                //turn off our current tiem in custom cursor and instead make it apear in the nearist slot 
+                //turn off our current item in custom cursor and instead make it apear in the nearist slot 
                 customCursor.gameObject.SetActive(false);
+
+                // creating a variable of nearst slot
+                // since this runs everytime we realse our mouse, reset the nearist slot becasue it might be differnt everytime
                 Slot nearestSlot = null;
                 float shortestDistance = float.MaxValue;
                 
                 //finding shortest distance for crafting slot
+                
+                //if the current item that we are holding is a crafting material and not a result item (bool in our item script) then we find the closet crafting slot
                 if (currentItem.resultItem != true)
                 {
+                    //go through all of the crafting slots and check for distance 
+
                     foreach (Slot slot in craftingSlot)
                     {
-                        float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
+                        /*if (slot.isFull == true)
+                            Debug.Log("is slot full?: " + slot.isFull);
+                                return;*/
 
+                        //finding the disitance of mouse to the slot
+                        float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
+                        // if the distance that we just calculated is shorter than our current shortest distance then that becomees our new shortsts distance 
+                        // and because it's the shortest distance the slot that we are checking in our list becomes our nearist slot/ closest to the mouse
                         if (distance < shortestDistance)
                         {
+                          
                             shortestDistance = distance;
                             nearestSlot = slot;
-                        }
-                    }
 
-                    //brain not working come back to this later:
-                    // if a slot has an item then that slot can no longer be the nearist slot
-                    if (nearestSlot != null)
-                    {
-                        // if nearist slot has something in it, the item has to go to the next nearest 
-                        Slot oldSlot = nearestSlot;
+                            
 
-                        foreach (Slot slot in craftingSlot)
-                        {
-                            float distance = Vector2.Distance(Input.mousePosition, slot.transform.position);
-
-                            if (distance < shortestDistance)
-                            {
-                                
-                                shortestDistance = distance;
-                                nearestSlot = slot;
-                            }
                         }
                     }
                 }
 
 
                 //finding shorest distance for inventory slots 
+                //repeat everything from above but only if the item that we are clicking in a result item
                 if (currentItem.resultItem == true)
                 {
 
@@ -122,10 +121,18 @@ public class CraftingManager : MonoBehaviour
                     }
 
                 }
-                //nearast slot becomes actuve and the image is replaced with the item you were draging
+                
+               
                 nearestSlot.gameObject.SetActive(true);
+                //if nearest slot is full
+                if(nearestSlot.isFull)
+                {
+                    //do not replace image
+                }
+
                 nearestSlot.GetComponent<Image>().sprite = currentItem.GetComponent<Image>().sprite;
                 nearestSlot.item = currentItem;
+                //the items in the slots are added to the item list based off of the index of the slots we put in the inspector 
                 itemList[nearestSlot.index] = currentItem;
 
                 currentItem = null;

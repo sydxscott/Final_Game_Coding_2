@@ -6,4 +6,5 @@ public class Slot : MonoBehaviour
 {
     public Item item;
     public int index;
+    public bool isFull = false;
 }
