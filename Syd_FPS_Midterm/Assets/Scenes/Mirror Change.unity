@@ -430,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   index: 5
+  isFull: 0
 --- !u!114 &246557677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,13 +1362,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710173428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.043909192, y: -0, z: -0, w: 0.99903554}
+  m_LocalPosition: {x: 0, y: 1.31, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.033, y: 0, z: 0}
 --- !u!1 &1755360750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   index: 3
+  isFull: 0
 --- !u!114 &1755360753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,6 +1512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   index: 0
+  isFull: 0
 --- !u!114 &1809617990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1675,6 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   index: 2
+  isFull: 0
 --- !u!114 &1850788952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,6 +1769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   index: 4
+  isFull: 0
 --- !u!114 &1865333075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,6 +1935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   index: 1
+  isFull: 0
 --- !u!114 &1898071825
 MonoBehaviour:
   m_ObjectHideFlags: 0
