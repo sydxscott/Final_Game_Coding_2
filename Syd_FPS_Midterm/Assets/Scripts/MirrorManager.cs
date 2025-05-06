@@ -1,43 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class MirrorManager : MonoBehaviour
 {
     public Slot[] closetSlot;
-    public Slot avalabileSlot;
 
-    public Item buttonResult;
-    public Item furResult;
-    Renderer rendy;
-    public Material mat;
+    //public Renderer rendy;
+    //public Material mat;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rendy = GetComponent<Renderer>();
-        mat = rendy.GetComponent<Material>();
+        //rendy = GetComponent<Renderer>();
+        //mat = rendy.GetComponent<Material>();  
 
-        foreach (Slot _slot in closetSlot)
+        // grab all crafted items
+        for (int i = 0; i < CraftingManager.craftedItems.Count; i++)
         {
-            if (_slot.item != null)
+            //check if the first slot is empty
+            if (closetSlot[i].item == null)
             {
-                foreach(Item _item in CraftingManager.craftedItems)
-                {
-                    _slot.gameObject.SetActive(true);
-                    _slot.GetComponent<Image>().sprite = _item.GetComponent<Image>().sprite;
-                    _slot.item = _item;
-
-                }
-               
+                print(2);
+                closetSlot[i].gameObject.SetActive(true);
+                closetSlot[i].GetComponent<Image>().sprite = CraftingManager.craftedItems[i].GetComponent<Image>().sprite;
+                closetSlot[i].item = CraftingManager.craftedItems[i];
             }
-
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if this and that = red shirt true
@@ -46,28 +41,21 @@ public class MirrorManager : MonoBehaviour
         //set material to red
         //if mose down compare tag red shirt
         // mat.color = Color.green;
-
-
-        //foreach (Slot _slot in closetSlot)
-        //{
-        //    if (_slot.item == null)
-        //    {
-
-        //        avalabileSlot = _slot;
-        //        break;
-        //    }
-
-        //}
-
-        //if (CraftingManager.haveButtonResult)
-        //{
-        //    avalabileSlot.item = furResult;
-        //    avalabileSlot.gameObject.SetActive(true);
-          
-
-
-        //}
+       
 
 
     }
+
+    public void OnClickChangeOutfit(Slot slot)
+    {
+        Debug.Log("clicking on slot");
+
+        if (slot.item.name == "Button result")
+        {
+            Debug.Log("button yass");
+           // mat.color = Color.white;
+        }
+
+    }
+
 }

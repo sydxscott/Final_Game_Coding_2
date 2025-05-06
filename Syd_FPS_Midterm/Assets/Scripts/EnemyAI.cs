@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
 
     //AI settings 
     public string enemyType;
-    public int enemyHealth;
+    public static int enemyHealth;
     private float speed;
     public float detectionRange;
     public float attackRange;
@@ -209,7 +209,7 @@ public class EnemyAI : MonoBehaviour
 
 
         agent.SetDestination(player.position);
-        Debug.Log("chase Called");
+        //Debug.Log("chase Called");
     }
 
     void AttackBehavior()

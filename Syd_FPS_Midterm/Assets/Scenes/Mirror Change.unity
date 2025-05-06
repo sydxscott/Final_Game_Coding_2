@@ -356,6 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 237345840}
+  - component: {fileID: 237345841}
   m_Layer: 0
   m_Name: Mirror Manager
   m_TagString: Untagged
@@ -378,6 +379,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237345841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237345839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608fec26767b5af49b1ac352ec564b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closetSlot:
+  - {fileID: 1809617989}
+  - {fileID: 1898071824}
+  - {fileID: 1755360752}
+  - {fileID: 1850788951}
+  - {fileID: 1865333074}
+  - {fileID: 246557676}
 --- !u!1 &246557674
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,8 +867,8 @@ RectTransform:
   m_Children:
   - {fileID: 1809617988}
   - {fileID: 1898071823}
-  - {fileID: 1850788950}
   - {fileID: 1755360751}
+  - {fileID: 1850788950}
   - {fileID: 1865333073}
   - {fileID: 246557675}
   m_Father: {fileID: 0}
@@ -1272,6 +1292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: T pose
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7658f4206c975a0488f77c12cf9ff349, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1362,13 +1386,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710173428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.043909192, y: -0, z: -0, w: 0.99903554}
-  m_LocalPosition: {x: 0, y: 1.31, z: -10}
+  m_LocalRotation: {x: 0.09618833, y: -0, z: -0, w: 0.9953631}
+  m_LocalPosition: {x: -0.48, y: 1.94, z: -9.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 5.033, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.039, y: 0, z: 0}
 --- !u!1 &1755360750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1406,7 @@ GameObject:
   - component: {fileID: 1755360753}
   - component: {fileID: 1755360752}
   m_Layer: 5
-  m_Name: Slot 4
+  m_Name: Slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1472,6 +1496,7 @@ GameObject:
   - component: {fileID: 1809617991}
   - component: {fileID: 1809617990}
   - component: {fileID: 1809617989}
+  - component: {fileID: 1809617992}
   m_Layer: 5
   m_Name: Slot 1
   m_TagString: Untagged
@@ -1551,6 +1576,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809617987}
   m_CullTransparentMesh: 1
+--- !u!114 &1809617992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809617987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 237345841}
+          m_TargetAssemblyTypeName: MirrorManager, Assembly-CSharp
+          m_MethodName: OnClickChangeOutfit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1809617989}
+            m_ObjectArgumentAssemblyTypeName: Slot, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1847909877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1693,7 @@ GameObject:
   - component: {fileID: 1850788952}
   - component: {fileID: 1850788951}
   m_Layer: 5
-  m_Name: Slot 3
+  m_Name: Slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

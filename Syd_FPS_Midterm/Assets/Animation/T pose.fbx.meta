@@ -3,7 +3,57 @@ guid: 7658f4206c975a0488f77c12cf9ff349
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: df86abd6ca95e31428b431f6816f61cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body1
+    second: {fileID: 2100000, guid: 561ac47d37dfbe74da10dfb99b798eea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: ed9ca18b48e0c504ba76d421baaae7ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pink_Cheeta
+    second: {fileID: 2100000, guid: eb35898f8f908934a83846e9304e3177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface4
+    second: {fileID: 2100000, guid: c94d8b2e7227b824faa1816d9f9378cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_knit
+    second: {fileID: 2100000, guid: 80edc4f3b9cc0cc4da4fbed827696752, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelashes
+    second: {fileID: 2100000, guid: 4c7b409983cc8ec4aa330fe16d1b7268, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes
+    second: {fileID: 2100000, guid: 9fcc3849cf39ca840a2bbfde2e345aba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 626d2b3f6a8d3ea4abea55ce117be8ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert11
+    second: {fileID: 2100000, guid: 53502f2a55fc3024f8672b2f08223115, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
