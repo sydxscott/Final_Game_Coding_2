@@ -14114,7 +14114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5727357654725711228, guid: 6cd0a8e4e34e8c7409816aed9413531b, type: 3}
       propertyPath: xAxis.m_MaxSpeed
-      value: 500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 5727357654725711228, guid: 6cd0a8e4e34e8c7409816aed9413531b, type: 3}
       propertyPath: yAxis.m_MaxSpeed
