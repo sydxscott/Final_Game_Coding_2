@@ -10,14 +10,21 @@ public class MirrorManager : MonoBehaviour
     public Slot[] closetSlot;
 
     //public Renderer rendy;
-    //public Material mat;
+    private Material mat;
+
+    public GameObject changeMatObj;
+
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //rendy = GetComponent<Renderer>();
+        //rendy = gameObject.GetComponent<Renderer>();
         //mat = rendy.GetComponent<Material>();  
+
+         mat = changeMatObj.GetComponent<Renderer>().material;
+
 
         // grab all crafted items
         for (int i = 0; i < CraftingManager.craftedItems.Count; i++)
@@ -53,9 +60,14 @@ public class MirrorManager : MonoBehaviour
         if (slot.item.name == "Button result")
         {
             Debug.Log("button yass");
-           // mat.color = Color.white;
+           mat.color = Color.black;
         }
 
+        if(slot.item.name == "Fur Result")
+        {
+            Debug.Log("fur pressed");
+            mat.color = Color.yellow;
+        }
     }
 
 }

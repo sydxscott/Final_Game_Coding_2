@@ -56,14 +56,13 @@ public class CharControl : MonoBehaviour
     public TextMeshProUGUI ammoText;
 
 
-    //dashing 
+    //vars for dashing 
     public float maxDashDuration = .02f;
     public float dashDistance = 10f;
     public float dashCoolDown = 10f;
-    private bool canDash = true;
+    public bool canDash = true;
     private bool isDashing = false;
  
-
 
 
     // Start is called before the first frame update
@@ -82,19 +81,19 @@ public class CharControl : MonoBehaviour
 
 }
 
-//void FixedUpdate()
-//{
-//    //is more reliable for physics than collision enter and exit
-//    isGrounded = Physics.Raycast(groundCheck.position, Vector3.down,
-//    groundDistance);
-//    Debug.DrawRay(groundCheck.position, Vector3.down * groundDistance,
-//    Color.red);
+    void FixedUpdate()
+    {
+        //is more reliable for physics than collision enter and exit
+        isGrounded = Physics.Raycast(groundCheck.position, Vector3.down,
+        groundDistance);
+        Debug.DrawRay(groundCheck.position, Vector3.down * groundDistance,
+        Color.red);
 
-//}
+    }
 
 
-// Update is called once per frame
-void Update()
+    // Update is called once per frame
+    void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         //zInput gets players w or s input which is -1 or 1
@@ -113,10 +112,10 @@ void Update()
         MaxStat(fufillment);
 
 
-        if(Input.GetKey(KeyCode.Space) && canDash && playerMovementInput != Vector3.zero)
+        if(Input.GetKey(KeyCode.LeftShift) && canDash && playerMovementInput == Vector3.zero)
         {
-            StartCoroutine(Dash());
             Debug.Log("start dash");
+            StartCoroutine(Dash());
         }
 
 
@@ -155,25 +154,6 @@ void Update()
             Debug.Log("return to normal speed:" + walkSpeed);
         }
     }
-
-    //private void CameraLook()
-    //{
-    //    //getting and assiging mouse inputs
-    //    float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-    //    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-    //    //when the mouse moves horizontally
-    //    //we rotate around the y axis to look left and right
-    //    yrotation += mouseX;
-    //    //rotate the player left/right on y axis rotation
-    //    transform.rotation = Quaternion.Euler(0f, yrotation, 0);
-    //    //decrease xRotation when moving mouse up so camera tilts up
-    //    //increase x rotation when moving cam down so cam tilts down
-    //    xrotation -= mouseY;
-    //    xrotation = Mathf.Clamp(xrotation, -90, 90); //prevents flipping
-    //    cameraTransform.localRotation = Quaternion.Euler(xrotation, 0, 0);
-
-    //}
 
     private void MovePlayer()
     {

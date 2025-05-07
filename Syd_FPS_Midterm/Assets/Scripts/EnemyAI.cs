@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
 
     //AI settings 
     public string enemyType;
-    public static int enemyHealth;
+    public int enemyHealth;
     private float speed;
     public float detectionRange;
     public float attackRange;
