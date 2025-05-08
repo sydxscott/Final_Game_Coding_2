@@ -62,7 +62,7 @@ public class MirrorManager : MonoBehaviour
         if(slot.item.name == "Fur Result")
         {
             Debug.Log("fur pressed");
-            mat.color = Color.yellow;
+            mat.color = Color.green;
         }
     }
 

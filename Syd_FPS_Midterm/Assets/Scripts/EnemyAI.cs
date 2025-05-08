@@ -286,7 +286,7 @@ public class EnemyAI : MonoBehaviour
         while (elapseTime < durration)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation,newRotation, elapseTime/durration );
-        transform.position = Vector3.Lerp(transform.position, newPosition, elapseTime/durration);
+            transform.position = Vector3.Lerp(transform.position, newPosition, elapseTime/durration);
             elapseTime += Time.deltaTime;
             yield return null;
 

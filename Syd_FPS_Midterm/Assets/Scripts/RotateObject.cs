@@ -8,6 +8,8 @@ public class RotateObject : MonoBehaviour
     Ray ray;
     RaycastHit hit;
 
+    public ParticleSystem ps;
+
     private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -16,7 +18,7 @@ public class RotateObject : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 RotateMe();
-
+                ps.Emit(1);
             }
         }
     }
