@@ -150,7 +150,7 @@ public class CharControl : MonoBehaviour
     {
         if (other.gameObject.tag == "Good Zombie" && EnemyAI.dead == true)
         {
-           
+
             walkSpeed = 10f;
             Debug.Log("return to normal speed:" + walkSpeed);
         }

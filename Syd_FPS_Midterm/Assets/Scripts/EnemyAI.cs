@@ -45,6 +45,8 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody rb;
     public float rotationSpeed;
 
+    SpriteBilboard spriteBilboard;
+
     // good fahsion zombies --> parent a circel plane  or do on draw gizmo??? and particals for slow range --> add circle on trigger collider to impact health and speed   --> 
     // do rhis is switch statement and have a tag that is goodfashionzombie and have the if statement be if the tag is a goodzombie and is in dead state 
 
@@ -53,6 +55,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteBilboard = GetComponent<SpriteBilboard>();
 
         charContorlScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CharControl>();
 
@@ -79,6 +82,8 @@ public class EnemyAI : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
         }
+
+        
 
     }
 
@@ -220,8 +225,14 @@ public class EnemyAI : MonoBehaviour
             lastAttackTime = Time.time;
             //Debug.Log("enemy attacked player");
             //logic to reduce player hearth healthscript.getcomponent.losinghealth
+            
+            if (enemyHealth > 0)
+            {
+                charContorlScript.Health(attackDamage);
 
-            charContorlScript.Health(attackDamage);
+            }
+
+            
 
 
         }
@@ -260,7 +271,8 @@ public class EnemyAI : MonoBehaviour
 
         agent.enabled = false;
         dead = true;
-  
+        Distress();
+
         StartCoroutine(DespawnTime());
 
         StartCoroutine(ZombieFall());
@@ -278,6 +290,8 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator ZombieFall()
     {
+        spriteBilboard.enabled =false;
+
         Quaternion newRotation = Quaternion.Euler(0, 0, 90);
         Vector3 newPosition = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
         float elapseTime = 0;
@@ -329,7 +343,7 @@ public class EnemyAI : MonoBehaviour
             {
                 // Debug.Log("enemy heaalth is zero");
                 DeathStateGood();
-                Distress();
+               
 
             }
             if (enemyHealth == 0 && gameObject.tag == "Bad Zombie")

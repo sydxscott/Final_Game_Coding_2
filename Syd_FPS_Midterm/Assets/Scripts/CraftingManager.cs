@@ -121,19 +121,25 @@ public class CraftingManager : MonoBehaviour
                     }
 
                 }
-                
-               
-                nearestSlot.gameObject.SetActive(true);
-                //if nearest slot is full
-                if(nearestSlot.isFull)
+
+                if(!nearestSlot.isFull && itemList[nearestSlot.index] == null)
                 {
-                    //do not replace image
+                    nearestSlot.gameObject.SetActive(true);
+                    nearestSlot.GetComponent<Image>().sprite = currentItem.GetComponent<Image>().sprite;
+                    nearestSlot.item = currentItem;
+                    Debug.Log("close");
+                }
+                else
+                {
+                    Debug.Log("nearist slot full");
                 }
 
-                nearestSlot.GetComponent<Image>().sprite = currentItem.GetComponent<Image>().sprite;
-                nearestSlot.item = currentItem;
                 //the items in the slots are added to the item list based off of the index of the slots we put in the inspector 
                 itemList[nearestSlot.index] = currentItem;
+                if(itemList[nearestSlot.index] != null)
+                {
+                    nearestSlot.isFull = true;
+                }
 
                 currentItem = null;
 
@@ -211,6 +217,7 @@ public class CraftingManager : MonoBehaviour
         itemList[slot.index] = null;
         slot.gameObject.SetActive(false);
         //check for recpies with new empty slot
+        slot.isFull = false;
         CheckForCreatedRecipies();
 
 
@@ -226,6 +233,10 @@ public class CraftingManager : MonoBehaviour
             customCursor.gameObject.SetActive(true);
             customCursor.sprite = currentItem.GetComponent<Image>().sprite;
 
+        }
+        if(item != null)
+        {
+            
         }
         if (item.itemName == "button")
         {
