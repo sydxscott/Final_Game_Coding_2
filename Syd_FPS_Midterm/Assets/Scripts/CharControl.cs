@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.iOS;
 
 public class CharControl : MonoBehaviour
 {
@@ -163,10 +164,10 @@ public class CharControl : MonoBehaviour
         {
             //small downward force to keep us grounded
             velocity.y = -1;
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    velocity.y = jumpForce;
-            //}
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                velocity.y = jumpForce;
+            }
         }
         else
         {
@@ -186,15 +187,22 @@ public class CharControl : MonoBehaviour
         isDashing = true;
         canDash = false;
 
-        Vector3 dashDirection = playerMovementInput.normalized;
+       // Vector3 dashDirection = playerMovementInput.normalized;
+
+        Vector3 dashDirection = transform.forward;
 
         float dashSpeed = dashDistance/ maxDashDuration;
 
+        print(dashSpeed);
+
         float startTime = Time.time;
+
+        
 
         while (Time.time < startTime + maxDashDuration)
         {
             controller.Move(dashDirection * dashSpeed * Time.deltaTime);
+            Debug.Log(dashDirection);
             yield return null;
         }
 
