@@ -13,10 +13,6 @@ public class MirrorManager : MonoBehaviour
     private Material mat;
 
     public GameObject changeMatObj;
-
-    
-
-
     // Start is called before the first frame update
     void Start()
     {
