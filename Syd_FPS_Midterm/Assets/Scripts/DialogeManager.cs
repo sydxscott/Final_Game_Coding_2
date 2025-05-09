@@ -6,22 +6,24 @@ using UnityEngine.UI;
 
 public class DialogeManager : MonoBehaviour
 {
-    public TextMeshProUGUI dialoge;
-    public Image textBox;
+    public static TextMeshProUGUI dialoge;
+    public static Image textBackground;
+    public Canvas canvas;
 
     public string[] dialogeLines;
 
     private void Start()
     {
-       
+       dialoge = canvas.GetComponentInChildren<TextMeshProUGUI>();
+       textBackground = canvas.GetComponentInChildren<Image>();
         
     }
 
-    public void LevelOneZombiesDead()
+    public static void LevelOneZombiesDead()
     {
-        dialoge.gameObject.SetActive(true);
-        textBox.gameObject.SetActive(true);
 
+        textBackground.enabled = true;
+        dialoge.enabled = true;
         dialoge.text = "I think all the uggo zombies are gone!";
 
 

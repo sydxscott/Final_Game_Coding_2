@@ -42,7 +42,8 @@ public class EnemySpawner : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene(6);
+            //SceneManager.LoadScene(6);
+            DialogeManager.LevelOneZombiesDead();
         }
 
     }
