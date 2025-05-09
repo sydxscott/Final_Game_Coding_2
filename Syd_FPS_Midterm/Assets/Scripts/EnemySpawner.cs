@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
 
     public TextMeshProUGUI enemiesAliveText;
 
+    public static bool startEnemyDeadText = false;
 
 
 
@@ -43,7 +44,8 @@ public class EnemySpawner : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             //SceneManager.LoadScene(6);
-            DialogeManager.LevelOneZombiesDead();
+            startEnemyDeadText = true;
+            
         }
 
     }

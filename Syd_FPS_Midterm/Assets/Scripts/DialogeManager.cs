@@ -4,27 +4,46 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DialogeManager : MonoBehaviour
 {
-    public static TextMeshProUGUI dialoge;
-    public static Image textBackground;
-    public Canvas canvas;
+    public  TextMeshProUGUI dialogeUI;
+    public  Image textBackground;
+    public  Canvas canvas;
+    public  bool currentlyTyping;
+    private  string dialogueText;
+    public  float textSpeed = 5;
+   public bool isTyping = false;
+    int textboxCounter;
 
-    public string[] dialogeLines;
+
 
     private void Start()
     {
-       dialoge = canvas.GetComponentInChildren<TextMeshProUGUI>();
+       dialogeUI = canvas.GetComponentInChildren<TextMeshProUGUI>();
        textBackground = canvas.GetComponentInChildren<Image>();
         
     }
 
-    public static void LevelOneZombiesDead()
+    private void Update()
     {
+        if (EnemySpawner.startEnemyDeadText)
+        {
+            LevelOneZombiesDead();
 
+     
+
+        }
+    }
+
+    public void LevelOneZombiesDead()
+    {
+       // StopAllCoroutines();
         textBackground.enabled = true;
-        dialoge.enabled = true;
-        dialoge.text = "I think all the uggo zombies are gone!";
+        dialogeUI.enabled = true;
+        dialogueText = " Z I think all the uggo zombies are gone!";
+        //dialogeUI.text = dialogueText;
+        StartCoroutine(TypeText());
 
 
 
@@ -33,6 +52,32 @@ public class DialogeManager : MonoBehaviour
     //create funstions taht can be called in different scripts when different things happen 
     // each of these functiosn has an array for dialoge line that it cycles throgh 
     // use seth code 
+
+
+
+
+    public  IEnumerator TypeText()
+    {
+        Debug.Log("corutine has been called");
+
+            currentlyTyping = true;
+
+            foreach (char letter in dialogueText)
+            {
+                Debug.Log("add a letetr");
+                dialogeUI.text += letter;
+                yield return new WaitForSeconds(textSpeed);
+            }
+           
+            currentlyTyping = false;
+
+
+        yield break;
+
+
+    }
+
+
 
 
 }
