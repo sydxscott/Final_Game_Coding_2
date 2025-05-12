@@ -63,6 +63,9 @@ public class CharControl : MonoBehaviour
     public float dashCoolDown = 10f;
     public bool canDash = true;
     private bool isDashing = false;
+
+    public HealthBar healthBar;
+    
  
 
 
@@ -78,9 +81,13 @@ public class CharControl : MonoBehaviour
         playerHealth = 100;
         distress = 0;   
         fufillment = 0;
+
+
+        healthBar.SetMaxHealth(100);
+
      
 
-}
+    }
 
     void FixedUpdate()
     {
@@ -229,6 +236,8 @@ public class CharControl : MonoBehaviour
     public void Health (int amount)
     {
         playerHealth -= amount;
+        healthBar.SetHealth(playerHealth);
+
         UpdateStatsText();
 
 
