@@ -47,6 +47,11 @@ public class EnemyAI : MonoBehaviour
 
     SpriteBilboard spriteBilboard;
 
+    public DistressBar distressBar;
+    public FufillmentBar fufillmentBar;
+
+ 
+
     // good fahsion zombies --> parent a circel plane  or do on draw gizmo??? and particals for slow range --> add circle on trigger collider to impact health and speed   --> 
     // do rhis is switch statement and have a tag that is goodfashionzombie and have the if statement be if the tag is a goodzombie and is in dead state 
 
@@ -58,6 +63,11 @@ public class EnemyAI : MonoBehaviour
         spriteBilboard = GetComponent<SpriteBilboard>();
 
         charContorlScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CharControl>();
+
+        fufillmentBar.SetInitialFufill(0);
+
+        //fufillmentBar = GameObject.FindGameObjectWithTag("Fufillment Bar");
+       
 
         lastAttackTime =-attackCoolDown;
 
@@ -141,6 +151,9 @@ public class EnemyAI : MonoBehaviour
         if (dead && gameObject.tag == "Good Zombie")
         {
             CharControl.distress += 3;
+            //CharControl.distressBar.SetDistress(CharControl.distress);
+            distressBar.SetDistress(CharControl.distress);
+
             //Debug.Log("distress went up, ff =" + CharControl.distress);
             CharControl.walkSpeed -= 0.15f;
 
@@ -155,6 +168,8 @@ public class EnemyAI : MonoBehaviour
         {
             EnemySpawner.badZombies -= 1;
             CharControl.fufillment += 3;
+            fufillmentBar.SetFufill(CharControl.fufillment);
+
             CharControl.walkSpeed += 0.5f;
             //Debug.Log("fufillment went up, ff =" +  CharControl.fufillment);
 

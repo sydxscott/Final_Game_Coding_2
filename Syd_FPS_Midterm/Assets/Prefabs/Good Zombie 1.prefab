@@ -157,6 +157,8 @@ MonoBehaviour:
   attackDamage: 0
   deapawnTime: 10
   rotationSpeed: 0
+  distressBar: {fileID: 8943670841159222585, guid: b5ea8c8e71f4e4250b22e92dca775598, type: 3}
+  fufillmentBar: {fileID: 4692019740821177268, guid: a83bc05e95af34b198b6b49d6045d220, type: 3}
 --- !u!135 &896312694256176436
 SphereCollider:
   m_ObjectHideFlags: 0

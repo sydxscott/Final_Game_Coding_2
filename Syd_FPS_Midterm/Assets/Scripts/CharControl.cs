@@ -65,6 +65,9 @@ public class CharControl : MonoBehaviour
     private bool isDashing = false;
 
     public HealthBar healthBar;
+    public DistressBar distressBar;
+    public int currentDistress;
+    public int maxDistress;
     
  
 
@@ -84,6 +87,7 @@ public class CharControl : MonoBehaviour
 
 
         healthBar.SetMaxHealth(100);
+        distressBar.SetInitialDistress(0);
 
      
 
@@ -145,9 +149,19 @@ public class CharControl : MonoBehaviour
     {
         if(other.gameObject.tag == "Good Zombie" && EnemyAI.dead == true)
         {
-            distress += 5;
+            distress += 10;
+            //distress++;
+            Debug.Log("distress increased");
+            distressBar.SetDistress(distress);
+            Debug.Log("Distress: " + distress.ToString());
             walkSpeed = 2f;
-            Debug.Log("distress down by 10:" +  distress);  
+            Debug.Log("distress down by 10:" +  distress);
+
+            //maxHealth += _health;
+            //increases max value on the health bar by 1 (corresponds to the number of the button increase
+            //healthBar.IncreaseMaxValue(1);
+            //sets the bar to update the current health to the max value
+            //healthBar.SetHealth(currentHealth);
         }
 
 
