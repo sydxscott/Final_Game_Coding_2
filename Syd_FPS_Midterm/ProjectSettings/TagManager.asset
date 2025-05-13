@@ -10,6 +10,8 @@ TagManager:
   - Good Zombie
   - Bad Zombie
   - Radius
+  - Distress Bar
+  - Fufillment Bar
   layers:
   - Default
   - TransparentFX
