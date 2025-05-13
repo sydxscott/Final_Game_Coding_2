@@ -56,14 +56,43 @@ public class MirrorManager : MonoBehaviour
         if (slot.item.name == "Button result")
         {
             Debug.Log("button yass");
-           mat.color = Color.black;
+           mat.color = Color.green;
         }
 
         if(slot.item.name == "Fur Result")
         {
             Debug.Log("fur pressed");
-            mat.color = Color.green;
+            mat.color = Color.yellow;
+        }
+        if (slot.item.name == "Fabric Result")
+        {
+            Debug.Log("button yass");
+            mat.color = Color.blue;
+        }
+
+        if (slot.item.name == "Grom Result")
+        {
+            Debug.Log("fur pressed");
+            mat.color = Color.black;
+        }
+        if (slot.item.name == "Lace Result")
+        {
+            Debug.Log("button yass");
+            mat.color = Color.gray;
+        }
+
+        if (slot.item.name == "Mixed Result 1")
+        {
+            Debug.Log("fur pressed");
+            mat.color = Color.cyan;
+        }
+        if (slot.item.name == "Mixed Result 2")
+        {
+            Debug.Log("fur pressed");
+            mat.color = Color.red;
         }
     }
-
 }
+
+
+

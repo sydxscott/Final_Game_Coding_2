@@ -291,12 +291,16 @@ public class CraftingManager : MonoBehaviour
             Debug.Log("Items in crafted Item list: " + craftedItems.ToString());
 
         }
-        if (slot.item.itemName == "Button Result")
+        else if (slot.item.itemName == "Button Result")
         {
             haveButtonResult = true;
             Debug.Log("Is button result true:" + haveButtonResult);
             craftedItems.Add(slot.item);
             Debug.Log("Items in crafted Item list: " + craftedItems.ToString());
+        }
+        else
+        {
+            craftedItems.Add(slot.item);
         }
         Slot avalSlot = null;
 
