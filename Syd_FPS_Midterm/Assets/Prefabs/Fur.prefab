@@ -27,9 +27,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8852132023350425278}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51860887, y: 0.51860887, z: 0.51860887}
+  m_LocalScale: {x: 0.048803624, y: 0.048803624, z: 0.048803624}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4c140dbd36728444c828b2a8c5e5ae38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee6cf36b8c4e44e5a823b661d16b98ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,7 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dda4fceebeafa34798fd31a87a9dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: lace
+  resultItem: 0
 --- !u!114 &904635060066430946
 MonoBehaviour:
   m_ObjectHideFlags: 0

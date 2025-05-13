@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4138069b30bcae43b9a9d28cf4cda8d, type: 3}
-  m_Name: Fur
+  m_Name: Grom
   m_EditorClassIdentifier: 
-  lootSprite: {fileID: 21300000, guid: 5506d51e7eadb4ed48c6aa1a0ddb7aff, type: 3}
-  lootname: Fur
-  dropChance: 80
+  lootSprite: {fileID: 21300000, guid: 5e88daf41631d4c348825ad684d3b4d1, type: 3}
+  lootname: Grom
+  dropChance: 70

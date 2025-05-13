@@ -32,8 +32,9 @@ public class ButtonManager : MonoBehaviour
     {
         LootPickUp.numButton = 10;
         LootPickUp.numFur = 10;
-        LootPickUp.numFabric = 10;  
-
+        LootPickUp.numFabric = 10;
+        LootPickUp.numLace = 10;
+        LootPickUp.numGrom = 10;
     }
 
     public void Mirror()
