@@ -924,11 +924,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The goal of the game is to kill all the bad fashion zombies (green capsules)
-    and to avoid killing the good fashion zombies (purple capsules). You have to
-    survive three waves. Keep your fufillment up for speed and your distress low
-    to avoid being slow. When the good fashion zombies die there is a distress radius
-    that forms. If you enter it your distress goes down.
+  m_text: The goal of the game is to kill all the bad fashion zombies and avoid killing
+    the good fashion zombies. You have to survive three waves. When you have killed
+    all the bad fashion zombies, you can enter your craft room (pink door), and start
+    crafting with what you have gathered!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

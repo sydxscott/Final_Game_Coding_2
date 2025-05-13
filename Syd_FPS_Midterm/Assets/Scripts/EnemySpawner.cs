@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
 
     public static bool startEnemyDeadText = false;
 
+    public static bool levelOver = false;
+
 
 
     // Start is called before the first frame update
@@ -44,7 +46,9 @@ public class EnemySpawner : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             //SceneManager.LoadScene(6);
+            levelOver = true;
             startEnemyDeadText = true;
+            
             
         }
 

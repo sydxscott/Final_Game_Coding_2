@@ -27,11 +27,9 @@ public class DialogeManager : MonoBehaviour
 
     private void Update()
     {
-        if (EnemySpawner.startEnemyDeadText)
+        if (EnemySpawner.levelOver)
         {
             LevelOneZombiesDead();
-
-     
 
         }
     }
@@ -41,10 +39,14 @@ public class DialogeManager : MonoBehaviour
        // StopAllCoroutines();
         textBackground.enabled = true;
         dialogeUI.enabled = true;
-        dialogueText = " Z I think all the uggo zombies are gone!";
-        //dialogeUI.text = dialogueText;
-        StartCoroutine(TypeText());
-
+        dialogueText = "I think all the uggo zombies are gone!";
+        dialogeUI.text = dialogueText;
+        StartCoroutine(NextLine());
+        dialogueText = "Lets go back to my room to craft with the materials I gathered!";
+        dialogeUI.text = dialogueText;
+        StartCoroutine(NextLine());
+        textBackground.enabled = false;
+        dialogeUI.enabled = false;
 
 
     }
@@ -56,23 +58,9 @@ public class DialogeManager : MonoBehaviour
 
 
 
-    public  IEnumerator TypeText()
+    public  IEnumerator NextLine()
     {
-        Debug.Log("corutine has been called");
-
-            currentlyTyping = true;
-
-            foreach (char letter in dialogueText)
-            {
-                Debug.Log("add a letetr");
-                dialogeUI.text += letter;
-                yield return new WaitForSeconds(textSpeed);
-            }
-           
-            currentlyTyping = false;
-
-
-        yield break;
+       yield return new WaitForSeconds(3);
 
 
     }
