@@ -376,7 +376,7 @@ public class EnemyAI : MonoBehaviour
 
     private void LoadEnemyData(string enemyName)
     {
-        string path = Application.dataPath + "/Data/EnemiesText.json";
+        string path = Path.Combine(Application.streamingAssetsPath, "Data/EnemiesText.json");
 
         if(File.Exists(path))
         {
