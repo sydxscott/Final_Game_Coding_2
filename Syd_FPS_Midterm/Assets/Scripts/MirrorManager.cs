@@ -13,14 +13,18 @@ public class MirrorManager : MonoBehaviour
     private Material mat;
 
     public GameObject changeMatObj;
+    //Renderer [] rendy ;
+
     // Start is called before the first frame update
     void Start()
     {
         //rendy = gameObject.GetComponent<Renderer>();
         //mat = rendy.GetComponent<Material>();  
 
-         mat = changeMatObj.GetComponent<Renderer>().material;
-
+        mat = changeMatObj.GetComponent<Renderer>().material;
+        //rendy = GetComponent<Renderer>();
+        
+       
 
         // grab all crafted items
         for (int i = 0; i < CraftingManager.craftedItems.Count; i++)
@@ -53,44 +57,49 @@ public class MirrorManager : MonoBehaviour
     {
         Debug.Log("clicking on slot");
 
-        if (slot.item.name == "Button result")
-        {
-            Debug.Log("button yass");
-           mat.color = Color.green;
-        }
+      
 
-        if(slot.item.name == "Fur Result")
-        {
-            Debug.Log("fur pressed");
-            mat.color = Color.yellow;
-        }
-        if (slot.item.name == "Fabric Result")
-        {
-            Debug.Log("button yass");
-            mat.color = Color.blue;
-        }
+            if (slot.item.name == "Button result")
+            {
+                Debug.Log("button yass");
+               mat.color = Color.green;
+            }
 
-        if (slot.item.name == "Grom Result")
-        {
-            Debug.Log("fur pressed");
-            mat.color = Color.black;
-        }
-        if (slot.item.name == "Lace Result")
-        {
-            Debug.Log("button yass");
-            mat.color = Color.gray;
-        }
+            if(slot.item.name == "Fur Result")
+            {
+                Debug.Log("fur pressed");
+                mat.color = Color.yellow;
+            }
+            if (slot.item.name == "Fabric Result")
+            {
+                Debug.Log("button yass");
+                mat.color = Color.blue;
+            }
 
-        if (slot.item.name == "Mixed Result 1")
-        {
-            Debug.Log("fur pressed");
-            mat.color = Color.cyan;
-        }
-        if (slot.item.name == "Mixed Result 2")
-        {
-            Debug.Log("fur pressed");
-            mat.color = Color.red;
-        }
+            if (slot.item.name == "Grom Result")
+            {
+                Debug.Log("fur pressed");
+                mat.color = Color.black;
+            }
+            if (slot.item.name == "Lace Result")
+            {
+                Debug.Log("button yass");
+                mat.color = Color.gray;
+            }
+
+            if (slot.item.name == "Mixed Result 1")
+            {
+                Debug.Log("fur pressed");
+                mat.color = Color.cyan;
+            }
+            if (slot.item.name == "Mixed Result 2")
+            {
+                Debug.Log("fur pressed");
+                mat.color = Color.red;
+            }
+        
+
+
     }
 }
 

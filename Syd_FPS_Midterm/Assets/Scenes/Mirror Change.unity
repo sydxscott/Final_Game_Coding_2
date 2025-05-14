@@ -532,7 +532,7 @@ MonoBehaviour:
   - {fileID: 1850788951}
   - {fileID: 1865333074}
   - {fileID: 246557676}
-  changeMatObj: {fileID: 1191337543}
+  changeMatObj: {fileID: 1663435175}
 --- !u!1 &246557674
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,7 +6303,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1820415725}
   m_SourcePrefab: {fileID: 100100000, guid: 7658f4206c975a0488f77c12cf9ff349, type: 3}
---- !u!1 &1191337543 stripped
+--- !u!1 &1663435175 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3615290203740998862, guid: 7658f4206c975a0488f77c12cf9ff349, type: 3}
   m_PrefabInstance: {fileID: 1191337542}
